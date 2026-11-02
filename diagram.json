@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "KASIREDDY GOWTHAM REDDY",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": -20.6, "left": 36, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 28.8, "left": -110.36, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 25.2, "left": 71, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 71.15,
+      "left": 96,
+      "attrs": { "value": "330" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:A", "bb1:6b.g", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:5b.g", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:6b.h", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:12b.h", "", [ "$bb" ] ],
+    [ "bb1:5b.h", "esp:GND.2", "green", [ "v0" ] ],
+    [ "bb1:12b.i", "esp:2", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
